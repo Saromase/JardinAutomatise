@@ -52,6 +52,8 @@ class CreateUsersTable extends Migration
             $table->foreign('garden_id')->references('id')->on('gardens');
             $table->integer('outdoor_humidity');
             $table->integer('outdoor_temperature');
+            $table->boolean('is_day');
+            $table->date('last_rain');
             $table->timestamps();
         });
 

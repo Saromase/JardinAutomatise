@@ -17,3 +17,4 @@ Route::resource('garden', 'GardenController');
 Route::resource('template', 'TemplateController');
 Route::resource('garden-plants', 'GardenPlantsController');
 Route::resource('template-type', 'TemplateTypeController');
+Route::resource('garden-properties', 'GardenPropertiesController');
