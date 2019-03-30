@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Garden;
 use Illuminate\Http\Request;
+use App\Traits\BaseModel;
 
 class GardenController extends Controller
 {
+
+    use BaseModel;
 
     /**
      * Display a listing of the resource.

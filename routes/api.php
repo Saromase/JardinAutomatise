@@ -14,3 +14,6 @@ use Illuminate\Http\Request;
 */
 Route::resource('users', 'UserController');
 Route::resource('garden', 'GardenController');
+Route::resource('template', 'TemplateController');
+Route::resource('garden-plants', 'GardenPlantsController');
+Route::resource('template-type', 'TemplateTypeController');

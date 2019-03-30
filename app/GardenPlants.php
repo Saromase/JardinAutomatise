@@ -4,14 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Garden extends Model
+class GardenPlants extends Model
 {
+
+    public $table = 'garden_plants';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id', 'template_id'
+        'garden_id', 'type','humidity','last_sprinkling', 'min_humidity', 'last_sprinkling_fertilizer'
     ];
 }

@@ -21,17 +21,18 @@ class CreateUsersTable extends Migration
         });
 
 
-        Schema::create('template_type', function (Blueprint $table) {
+        Schema::create('template_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });
 
-        Schema::create('template', function (Blueprint $table) {
+        Schema::create('templates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('length');
             $table->integer('width');
-            $table->integer('template_type_id');
+            $table->integer('template_type_id')->unsigned();
+            $table->foreign('template_type_id')->references('id')->on('templates');
             $table->timestamps();
         });
 
@@ -41,7 +42,7 @@ class CreateUsersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('template_id')->unsigned();
-            $table->foreign('template_id')->references('id')->on('template');
+            $table->foreign('template_id')->references('id')->on('templates');
             $table->timestamps();
         });
 
@@ -61,7 +62,7 @@ class CreateUsersTable extends Migration
             $table->string('type');
             $table->integer('humidity');
             $table->date('last_sprinkling');
-            $table->date('min_humidity');
+            $table->integer('min_humidity');
             $table->date('last_sprinkling_fertilizer');
             $table->timestamps();
         });

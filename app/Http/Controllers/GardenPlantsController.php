@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Template;
+use App\GardenPlants;
 use Illuminate\Http\Request;
 use App\Traits\BaseModel;
 
-
-class TemplateController extends Controller
+class GardenPlantsController extends Controller
 {
     use BaseModel;
 
@@ -18,7 +17,7 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        return json_encode(Template::find($template)->first());
+        return json_encode(GardenPlants::find($gardenPlants)->first());
     }
 
     /**
@@ -39,28 +38,28 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        $template = Template::create($request->all());
-        return $template;
+        $gardenPlants = GardenPlants::create($request->all());
+        return $gardenPlants;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Template  $template
+     * @param  \App\GardenPlants  $gardenPlants
      * @return \Illuminate\Http\Response
      */
-    public function show(Template $template)
+    public function show(GardenPlants $gardenPlants)
     {
-        return json_encode(Template::find($template)->first());
+        return json_encode(GardenPlants::find($gardenPlants)->first());
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Template  $template
+     * @param  \App\GardenPlants  $gardenPlants
      * @return \Illuminate\Http\Response
      */
-    public function edit(Template $template)
+    public function edit(GardenPlants $gardenPlants)
     {
         return;
     }
@@ -69,23 +68,23 @@ class TemplateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Template  $template
+     * @param  \App\GardenPlants  $gardenPlants
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Template $template)
+    public function update(Request $request, GardenPlants $gardenPlants)
     {
-        $template = Template::hydrateRequest($template, $request->all());
-        $template->save();
-        return $template;
+        $gardenPlants = GardenPlants::hydrateRequest($gardenPlants, $request->all());
+        $gardenPlants->save();
+        return $gardenPlants;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Template  $template
+     * @param  \App\GardenPlants  $gardenPlants
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Template $template)
+    public function destroy(GardenPlants $gardenPlants)
     {
         //
     }
