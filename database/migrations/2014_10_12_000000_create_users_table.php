@@ -35,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('garden', function (Blueprint $table) {
+        Schema::create('gardens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id')->unsigned();
@@ -48,7 +48,7 @@ class CreateUsersTable extends Migration
         Schema::create('garden_properties', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('garden_id')->unsigned();
-            $table->foreign('garden_id')->references('id')->on('users');
+            $table->foreign('garden_id')->references('id')->on('gardens');
             $table->integer('outdoor_humidity');
             $table->integer('outdoor_temperature');
             $table->timestamps();
@@ -57,7 +57,7 @@ class CreateUsersTable extends Migration
         Schema::create('garden_plants', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('garden_id')->unsigned();
-            $table->foreign('garden_id')->references('id')->on('users');
+            $table->foreign('garden_id')->references('id')->on('gardens');
             $table->string('type');
             $table->integer('humidity');
             $table->date('last_sprinkling');
@@ -79,7 +79,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('template_type');
         Schema::dropIfExists('template');
-        Schema::dropIfExists('garden');
+        Schema::dropIfExists('gardens');
         Schema::dropIfExists('garden_properties');
         Schema::dropIfExists('garden_plants');
         Schema::dropIfExists('password_resets');

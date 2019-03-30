@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class GardenController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +15,7 @@ class GardenController extends Controller
      */
     public function index()
     {
-        //
+        return json_encode(Garden::find($garden)->first());
     }
 
     /**
@@ -24,7 +25,7 @@ class GardenController extends Controller
      */
     public function create()
     {
-        //
+        return;
     }
 
     /**
@@ -35,7 +36,8 @@ class GardenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $garden = Garden::create($request->all());
+        return $garden;
     }
 
     /**
@@ -46,7 +48,7 @@ class GardenController extends Controller
      */
     public function show(Garden $garden)
     {
-        //
+        return json_encode(Garden::find($garden)->first());
     }
 
     /**
@@ -57,7 +59,7 @@ class GardenController extends Controller
      */
     public function edit(Garden $garden)
     {
-        //
+        return;
     }
 
     /**
@@ -69,7 +71,10 @@ class GardenController extends Controller
      */
     public function update(Request $request, Garden $garden)
     {
-        //
+        $garden = Garden::hydrateRequest($garden, $request->all());
+        $garden->user_id = 1;
+        $garden->save();
+        return $garden;
     }
 
     /**
