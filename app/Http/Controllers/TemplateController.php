@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Template;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class TemplateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return 'titit';
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return;
+        //
     }
 
     /**
@@ -35,53 +35,50 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        return $user;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Template $template)
     {
-        return json_encode(User::find($user)->first());
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Template $template)
     {
-        return;
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Template $template)
     {
-        $user = User::hydrateRequest($user, $request->all());
-        $user->save();
-        return $user;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Template $template)
     {
         //
     }

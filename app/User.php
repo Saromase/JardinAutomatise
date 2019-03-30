@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\BaseModel;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, BaseModel;
 
     /**
      * The attributes that are mass assignable.
@@ -32,4 +33,5 @@ class User extends Authenticatable
     {
         return User::find($id);
     }
+
 }

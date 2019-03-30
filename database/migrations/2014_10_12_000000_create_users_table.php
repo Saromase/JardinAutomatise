@@ -49,7 +49,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->integer('garden_id')->unsigned();
             $table->foreign('garden_id')->references('id')->on('users');
-            $table->integer('humidity');
+            $table->integer('outdoor_humidity');
             $table->integer('outdoor_temperature');
             $table->timestamps();
         });
@@ -59,7 +59,6 @@ class CreateUsersTable extends Migration
             $table->integer('garden_id')->unsigned();
             $table->foreign('garden_id')->references('id')->on('users');
             $table->string('type');
-            $table->integer('position');
             $table->integer('humidity');
             $table->date('last_sprinkling');
             $table->date('min_humidity');
